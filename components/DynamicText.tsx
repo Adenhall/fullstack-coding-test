@@ -1,14 +1,26 @@
-import React, { useState } from "react";
-import { Heading } from "@chakra-ui/react"
+import React, { useState, forwardRef, useImperativeHandle } from "react";
+import { Heading } from "@chakra-ui/react";
 
-const DynamicText = () => {
+type dynamicHeadingRef = {
+  changeValue: (newValue: string) => void
+}
+
+const DynamicText = forwardRef<dynamicHeadingRef>((_, ref) => {
   const [value, setValue] = useState("Random Text");
 
   const changeValue = (newValue: string) => {
     setValue(newValue);
   };
 
-  return <Heading as="h1">{value}</Heading>;
-};
+  useImperativeHandle(ref, () => ({
+    changeValue,
+  }));
+
+  return (
+    <Heading ref={ref as any} as="h1">
+      {value}
+    </Heading>
+  );
+});
 
 export default DynamicText;
