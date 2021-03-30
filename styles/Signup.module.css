@@ -1,0 +1,10 @@
+.container {
+    margin-top: 6rem;
+    padding: 3rem;
+    border: 2px solid #400d19;
+    border-radius: 2.1rem;
+}
+
+.heading {
+    color: #801c33;
+}
