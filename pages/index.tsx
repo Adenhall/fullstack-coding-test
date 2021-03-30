@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Head from "next/head";
 import styles from "styles/Home.module.css";
-import { Input, Box, Stack } from "@chakra-ui/react"
+import { Input, Box, Container } from "@chakra-ui/react"
 import DynamicText from "components/DynamicText";
 
 const Home = () => {
@@ -18,10 +18,10 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Stack wrap="wrap" className={styles.main}>
+      <Container maxW="md" className={styles.main}>
         <DynamicText ref={dynamicHeadingRef} />
         <Input onChange={onChange} />
-      </Stack>
+      </Container>
     </Box>
   );
 };

@@ -17,7 +17,7 @@ const DynamicText = forwardRef<dynamicHeadingRef>((_, ref) => {
   }));
 
   return (
-    <Heading ref={ref as any} as="h1">
+    <Heading maxW="md" ref={ref as any} as="h1">
       {value}
     </Heading>
   );
