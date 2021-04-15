@@ -1,25 +1,16 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "styles/Home.module.css";
 import { Input, Box, Container, Button } from "@chakra-ui/react";
 import DynamicText from "components/DynamicText";
-import { useAuth } from "contexts/AuthContext";
 
 const Home = () => {
   const dynamicHeadingRef = useRef(null);
-  const { currentUser } = useAuth();
   const router = useRouter();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value, dynamicHeadingRef);
     dynamicHeadingRef.current.changeValue(e.target.value);
   };
-
-  useEffect(() => {
-    if (!currentUser) {
-      router.push("/login");
-    }
-  });
 
   return (
     <Box className={styles.container}>

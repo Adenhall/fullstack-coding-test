@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start"
   },
@@ -11,8 +11,12 @@
     "@chakra-ui/react": "^1.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@tinymce/tinymce-react": "^3.12.1",
+    "@types/tinymce": "^4.6.0",
+    "axios": "^0.21.1",
     "firebase": "^8.3.1",
     "framer-motion": "^4",
+    "jwt-decode": "^3.1.2",
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1"

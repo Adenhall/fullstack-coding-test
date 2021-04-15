@@ -13,8 +13,8 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  Button,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import { useAuth } from "contexts/AuthContext";
 
@@ -23,11 +23,13 @@ const Blog = () => {
   const { blogs, currentUser } = useAuth();
   const router = useRouter();
   const [itemDetails, setItemDetails] = useState({
-    src: "",
+    image: "",
     alt: "",
-    heading: "",
+    title: "",
     content: "",
+    id: "",
   });
+
   const renderCards = (item: IBlogCard) => {
     return (
       <Box
@@ -41,12 +43,11 @@ const Blog = () => {
         }}
         bg="tomato"
         padding="2">
-        <Image src={item.src} alt={item.alt} />
-        <Heading fontSize="20px">{item.heading}</Heading>
+        <Image src={item.image} alt={item.alt} />
+        <Heading fontSize="20px">{item.title}</Heading>
       </Box>
     );
   };
-
   useEffect(() => {
     if (!currentUser) {
       router.push("/login");
@@ -58,10 +59,10 @@ const Blog = () => {
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{item.heading}</ModalHeader>
+          <ModalHeader>{item.title}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Image src={item.src} alt={item.alt} />
+            <Image src={item.image} alt={item.alt} />
             <Text>{item.content}</Text>
           </ModalBody>
 

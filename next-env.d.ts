@@ -2,8 +2,9 @@
 /// <reference types="next/types/global" />
 
 declare interface IBlogCard {
-  src: string;
+  id: string;
+  image: string;
   alt: string;
-  heading: string;
+  title: string;
   content: string;
 }

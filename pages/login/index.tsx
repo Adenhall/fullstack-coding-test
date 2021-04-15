@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { useRouter } from "next/router";
 import { Stack, FormControl, FormLabel, Input, Heading, Container, Button, Link, Text } from "@chakra-ui/react";
+
 import styles from "styles/Signup.module.css";
 import { useAuth } from "contexts/AuthContext";
 
@@ -10,7 +10,6 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
-  const router = useRouter();
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -31,8 +30,7 @@ const Login = () => {
         setIsLoading(false);
         return;
       }
-      const res = await login(email, password);
-      res && router.push("/");
+      await login(email, password);
     } catch (error) {
       setErrors({
         result: error.message,
